@@ -10,3 +10,9 @@ then
     touch "$systemLogRoot/systemSetup"
 fi
 
+if [ ! -f "$systemLogRoot/apacheSetup" ];
+then
+    bash ./apache.sh
+    touch "$systemLogRoot/apacheSetup"
+fi
+

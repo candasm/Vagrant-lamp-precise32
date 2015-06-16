@@ -10,3 +10,10 @@ then
     apt-get autoremove -y build-essential python-software-properties curl vim git
     rm -rf "$systemLogRoot/systemSetup"
 fi
+if [ -f "$systemLogRoot/apacheSetup" ];
+then
+    echo "uninstalling apache setup"
+
+
+    rm -rf "$systemLogRoot/apacheSetup"
+fi
