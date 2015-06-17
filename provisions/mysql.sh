@@ -3,6 +3,9 @@
 echo '========================================================='
 echo ">> Mysql database server will start to install"
 
+apt-get install -y debconf-utils
+echo ">> debconf-utils yuklemesi tamamlandi"
+
 debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password password root"
 debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password_again password root"
 
