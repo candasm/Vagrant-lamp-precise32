@@ -38,3 +38,8 @@ xdebug.remote_port=9000
 xdebug.remote_connect_back = on
 EOF
 echo ">> xdebug yuklendi ve config dosyasi /etc/php5/apache2/conf.d/xdebug.ini adrese eklendi"
+
+curl -sS https://getcomposer.org/installer | php
+echo ">> composer indirildi"
+mv composer.phar /usr/local/bin/composer
+echo ">> composer global kullanilir hale getirildi /usr/local/bin/composer"
