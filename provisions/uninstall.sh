@@ -49,6 +49,12 @@ if [ -f "$systemLogRoot/mysqlSetup" ];
 then
     echo "uninstalling mysql setup"
 
+    apt-get --purge remove -y mysql-server \
+                              mysql-client \
+                              mysql-common \
+                              php5-mysql
+    apt-get autoremove -y
+    apt-get autoclean -y
 
     rm -rf "$systemLogRoot/mysqlSetup"
 fi
