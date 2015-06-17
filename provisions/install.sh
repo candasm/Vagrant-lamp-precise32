@@ -15,3 +15,9 @@ then
     bash ./apache.sh
     touch "$systemLogRoot/apacheSetup"
 fi
+
+if [ ! -f "$systemLogRoot/phpSetup" ];
+then
+    bash ./php5.sh
+    touch "$systemLogRoot/phpSetup"
+fi

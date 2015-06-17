@@ -10,6 +10,7 @@ then
     apt-get autoremove -y build-essential python-software-properties curl vim git
     rm -rf "$systemLogRoot/systemSetup"
 fi
+
 if [ -f "$systemLogRoot/apacheSetup" ];
 then
     echo "uninstalling apache setup"
@@ -20,4 +21,26 @@ then
     mkdir /var/www
 
     rm -rf "$systemLogRoot/apacheSetup"
+fi
+
+if [ -f "$systemLogRoot/phpSetup" ];
+then
+    echo "uninstalling apache setup"
+
+    apt-get autoremove -y php5 \
+                       php5-fpm \
+                       libapache2-mod-php5 \
+                       php-apc \
+                       php5-dev \
+                       php-pear \
+                       php5-mcrypt \
+                       php5-cli \
+                       php5-gd \
+                       php5-intl \
+                       php5-mysql \
+                       php5-xmlrpc \
+                       php5-pspell \
+                       php5-curl
+
+    rm -rf "$systemLogRoot/phpSetup"
 fi
