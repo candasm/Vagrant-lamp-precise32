@@ -15,4 +15,3 @@ then
     bash ./apache.sh
     touch "$systemLogRoot/apacheSetup"
 fi
-
