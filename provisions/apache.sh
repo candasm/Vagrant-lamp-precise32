@@ -9,25 +9,18 @@ a2enmod ssl rewrite
 #create ssl certificate
 mkdir -p /etc/apache2/ssl
 echo ">> apache2 ssl folder created"
-openssl genrsa -des3 -passout pass:1234 -out server.key 1024
-echo ">> server.key created"
-openssl req \
-        -new \
-        -key server.key \
-        -passin pass:1234 \
-        -subj "/C=TR/ST=Turkey/L=Istanbul/O=Dev/CN=localhost/emailAddress=info@localhost" \
-        -out server.csr
-echo ">> server.csr certificate created"
-openssl x509 \
-        -req \
-        -days 365 \
-        -in server.csr \
-        -passin pass:1234 \
-        -signkey server.key \
-        -out server.crt
-echo ">> server.crt certificate created"
-mv {server.key,server.csr,server.crt} /etc/apache2/ssl
-echo ">> {server.key,server.csr,server.crt} files moved under /etc/apache2/ssl"
+
+sudo openssl req \
+             -x509 \
+             -nodes \
+             -days 365 \
+             -newkey \
+             rsa:2048 \
+             -subj "/C=TR/ST=Turkey/L=Istanbul/O=Dev/CN=localhost/emailAddress=info@localhost" \
+             -keyout /etc/apache2/ssl/apache.key \
+             -out /etc/apache2/ssl/apache.crt
+
+echo ">> apache.key, apache.crt  self signed certificates created under /etc/apache2/ssl"
 
 #apache settings
 rm -rf /var/www
