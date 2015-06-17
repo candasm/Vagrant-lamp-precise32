@@ -26,7 +26,7 @@ openssl x509 \
         -signkey server.key \
         -out server.crt
 echo ">> server.crt certificate created"
-mv {server.key,server.csr,server.crt} certificates/
+mv {server.key,server.csr,server.crt} /etc/apache2/ssl
 echo ">> {server.key,server.csr,server.crt} files moved under /etc/apache2/ssl"
 
 #apache settings
