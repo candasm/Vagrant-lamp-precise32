@@ -25,7 +25,7 @@ fi
 
 if [ -f "$systemLogRoot/phpSetup" ];
 then
-    echo "uninstalling apache setup"
+    echo "uninstalling php5 setup"
 
     apt-get autoremove -y php5 \
                        php5-fpm \
@@ -43,4 +43,12 @@ then
                        php5-curl
 
     rm -rf "$systemLogRoot/phpSetup"
+fi
+
+if [ -f "$systemLogRoot/mysqlSetup" ];
+then
+    echo "uninstalling mysql setup"
+
+
+    rm -rf "$systemLogRoot/mysqlSetup"
 fi

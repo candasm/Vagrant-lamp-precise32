@@ -21,3 +21,8 @@ then
     bash ./php5.sh
     touch "$systemLogRoot/phpSetup"
 fi
+if [ ! -f "$systemLogRoot/mysqlSetup" ];
+then
+    bash ./mysql.sh
+    touch "$systemLogRoot/mysqlSetup"
+fi
