@@ -14,6 +14,10 @@ if [ -f "$systemLogRoot/apacheSetup" ];
 then
     echo "uninstalling apache setup"
 
+    apt-get autoremove -y apache2 \
+                          openssl
+    rn -rf /var/www
+    mkdir /var/www
 
     rm -rf "$systemLogRoot/apacheSetup"
 fi
