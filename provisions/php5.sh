@@ -13,7 +13,6 @@ apt-get install -y php5 \
                    php5-cli \
                    php5-gd \
                    php5-intl \
-                   php5-mysql \
                    php5-xmlrpc \
                    php5-pspell \
                    php5-curl
