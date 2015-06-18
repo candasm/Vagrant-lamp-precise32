@@ -30,6 +30,7 @@ sudo sed -i '/export APACHE_RUN_USER=www-data/c export APACHE_RUN_USER=vagrant' 
 sudo sed -i '/export APACHE_RUN_GROUP=www-data/c export APACHE_RUN_GROUP=vagrant' /etc/apache2/envvars
 echo ">> apache vagrant users setted"
 rm -rf /etc/apache2/sites-available/*
+rm -rf /etc/apache2/sites-enabled/*
 cat >> /etc/apache2/sites-available/localhost.conf <<EOF
 <VirtualHost *:80>
         DocumentRoot /var/www
@@ -48,8 +49,8 @@ EOF
 cat >> /etc/apache2/sites-available/localhost-ssl.conf <<EOF
 <VirtualHost *:443>
      SSLEngine On
-     SSLCertificateFile /etc/apache2/ssl/server.pem
-     SSLCertificateKeyFile /etc/apache2/ssl/server.key
+     SSLCertificateFile /etc/apache2/ssl/apache.pem
+     SSLCertificateKeyFile /etc/apache2/ssl/apache.key
      DocumentRoot /var/www
      ServerName localhost
         <Directory />
@@ -64,5 +65,7 @@ cat >> /etc/apache2/sites-available/localhost-ssl.conf <<EOF
         </Directory>
 </VirtualHost>
 EOF
+ln -fs /etc/apache2/sites-available/localhost.conf /etc/apache2/sites-enabled/localhost.conf
+ln -fs /etc/apache2/sites-available/localhost-ssl.conf /etc/apache2/sites-enabled/localhost-ssl.conf
 echo ">> apache2 config files added"
 echo ">> apache2 installed and setted"

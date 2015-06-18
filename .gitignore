@@ -2,3 +2,4 @@
 
 ### Vagrant ###
 .vagrant/
+public/*
