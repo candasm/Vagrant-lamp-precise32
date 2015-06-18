@@ -44,8 +44,11 @@ echo ">> composer indirildi"
 mv composer.phar /usr/local/bin/composer
 echo ">> composer global kullanilir hale getirildi /usr/local/bin/composer"
 
+if [ ! -f "/vagrant/public/index.php" ];
+then
 cat >> /vagrant/public/index.php <<EOF
 <?php
 phpinfo();
 EOF
 echo "php info dosyasi public/index.php icerisine yazidirildi"
+fi
