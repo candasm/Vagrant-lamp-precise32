@@ -49,8 +49,8 @@ EOF
 cat >> /etc/apache2/sites-available/localhost-ssl.conf <<EOF
 <VirtualHost *:443>
      SSLEngine On
-     SSLCertificateFile /etc/apache2/ssl/server.pem
-     SSLCertificateKeyFile /etc/apache2/ssl/server.key
+     SSLCertificateFile /etc/apache2/ssl/apache.pem
+     SSLCertificateKeyFile /etc/apache2/ssl/apache.key
      DocumentRoot /var/www
      ServerName localhost
         <Directory />
