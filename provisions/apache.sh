@@ -65,7 +65,7 @@ cat >> /etc/apache2/sites-available/localhost-ssl.conf <<EOF
         </Directory>
 </VirtualHost>
 EOF
-ln -ls /etc/apache2/sites-available/localhost.conf /etc/apache2/sites-enabled/localhost.conf
-ln -ls /etc/apache2/sites-available/localhost-ssl.conf /etc/apache2/sites-enabled/localhost-ssl.conf
+ln -fs /etc/apache2/sites-available/localhost.conf /etc/apache2/sites-enabled/localhost.conf
+ln -fs /etc/apache2/sites-available/localhost-ssl.conf /etc/apache2/sites-enabled/localhost-ssl.conf
 echo ">> apache2 config files added"
 echo ">> apache2 installed and setted"
