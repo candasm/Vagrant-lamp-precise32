@@ -34,6 +34,7 @@ rm -rf /etc/apache2/sites-enabled/*
 cat >> /etc/apache2/sites-available/localhost.conf <<EOF
 <VirtualHost *:80>
         DocumentRoot /var/www
+        ServerName localhost
         <Directory />
                 Options FollowSymLinks
                 AllowOverride All
